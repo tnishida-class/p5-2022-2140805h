@@ -22,7 +22,7 @@ function setup() {
       fill(0);
       ellipse(size * (i + 0.5), size * (j + 0.5), size * 7/8);
       }
-      
+
     }
     }
   }
