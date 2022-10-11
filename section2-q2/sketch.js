@@ -13,12 +13,10 @@ function setup() {
     else{
       fill(160);
       rect(size * i, size * j, size * (i + 1), size * (j + 1));
+      fill(255, 0, 0);
+      ellipse(size * (i + 0.5), size * (j + 0.5), 5);
     }
     
-    if((i + j) % 2 == 1){
-      fill(255, 0, 0);
-      ellipse(size * i, size * j, size % 2)
-    };
     
     }
   }
