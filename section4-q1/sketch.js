@@ -7,8 +7,9 @@ function setup(){
   // 配列をランダムに初期化する
   let scores = [];
   for(let i = 0; i < 10; i++){
-    scores[i] = random(20, 100); // 60以上100未満のランダムな数を代入
+    scores[i] = random(60, 100); // 60以上100未満のランダムな数を代入
   }
+  console.log(scores);
 
   // 横線を引く
   const n = 10;
@@ -20,5 +21,15 @@ function setup(){
   let px, py; // 線を引くために一つ前の点を覚えておく変数
   for(let i = 0; i < scores.length; i++){
     // BLANK[1]
+    ellipse(dx * (i + 0.5), 400 - height * scores[i] / 100, 5);
+    line(dx * (i + 0.5), 400 - height * scores[i] / 100, px, py );
+
+    px = dx * (i + 0.5); 
+    py = 400 - height * scores[i] / 100;
+    console.log(px);
+    console.log(py);
+    
+    // ellipse(dx * (i + 0.5), 400 - height * scores[i] / 100, 5);
+    
   }
 }
