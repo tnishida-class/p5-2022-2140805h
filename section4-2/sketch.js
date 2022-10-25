@@ -16,6 +16,8 @@ function draw(){
     b.x += b.vx;
     b.y += b.vy;
   }
+
+  // ellipse(random(0, windowWidth), random(0, windowHeight), random(10, 40))
 }
 
 function mouseDragged(){
