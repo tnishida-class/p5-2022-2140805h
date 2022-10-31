@@ -14,6 +14,9 @@ function crossmark(x1, y1, x2, y2){
   line(x2, y1, x1, y2);
 }
 
+// pushとpopがあることで、
+// ngmarkだけにnoFillとstrokeWeightが反映されるようになる。
+// pushとpopを除くと、starに対しても反映される。
 function ngmark(cx, cy, r){
   push();
   noFill();
@@ -31,6 +34,10 @@ function star(cx, cy, r){
     let x = cx + cos(theta) * r;
     let y = cy + sin(theta) * r;
     vertex(x,y);
+    console.log(theta);
+    console.log(x,y);
   }
   endShape(CLOSE);
 }
+
+function regularPolygon(n, cx, cy, r)
