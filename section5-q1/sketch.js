@@ -6,7 +6,7 @@ function setup(){
   background(255);
   textSize(32);
   textFont('Georgia');
-  balloon("I love keyakizaka46", 50, 50, 165, 5, 165);
+  balloon("I love keyakizaka46", 30, 50, 165, 5, 165);
 }
 
 function balloon(t, x, y, r, g, b){
