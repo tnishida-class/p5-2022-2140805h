@@ -7,30 +7,39 @@ function setup(){
   createCanvas(windowWidth, windowHeight);
   x = width / 2;
   y = height / 2;
-  vx = 8;
-  vy = 8;
+  vx = 4;
+  vy = 4;
 }
 
 function draw(){
   background(160, 192, 255);
-  ellipse(x, y, 20, 20);
+  flower(x, y, 20, 20);
+}
+  
+
+
+function keyPressed(){
+
   x += vx;
   y += vy;
 
   // 重力（コメント機能でオンオフ切り替えて実行してみましょう）
   vy = constrain(vy + g, -vyMax, vyMax);
+ }
 
-  // 端の処理パターン (1) 反対側から出てくる
-  // if(x > width){ x = 0; }
-  // else if(x < 0){ x = width; }
-  // if(y > height){ y = 0; }
-  // if(y < 0){ y = height; }
-
-　// 端の処理パターン (2) 跳ね返る
-  if(x < 0 || x > width){ vx = -1 * vx; }
-  if(y > height){ vy = -1 * vy; }
-  x = constrain(x, 0, width);
-  y = constrain(y, 0, height);
+function flower(fx, fy, r){
+  
+  for(var i = 0; i < 5; i++){
+    let theta = TWO_PI * i * 2 / 5 - HALF_PI;
+    let x = fx + cos(theta) * r / 2;
+    let y = fy + sin(theta) * r / 2;
+    vertex(x,y);
+    fill(248, 166, 243);
+    push();
+    noStroke();
+    ellipse(x, y, r);
+    pop();
+  }
 }
 
 function windowResized(){
