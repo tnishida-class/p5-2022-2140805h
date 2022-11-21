@@ -2,6 +2,7 @@
 let x, y, vx, vy;
 const g = 1; // 重力加速度
 const vyMax = 30;
+let fr = 10;
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
@@ -13,19 +14,23 @@ function setup(){
 
 function draw(){
   background(160, 192, 255);
+  frameRate(fr);
   flower(x, y, 20, 20);
 }
   
 
 
-function keyPressed(){
-
+function mouseClicked(){
+  
+  while(x < windowWidth && y < windowHeight){
   x += vx;
   y += vy;
-
+  
   // 重力（コメント機能でオンオフ切り替えて実行してみましょう）
   vy = constrain(vy + g, -vyMax, vyMax);
+  }
  }
+
 
 function flower(fx, fy, r){
   
@@ -40,6 +45,7 @@ function flower(fx, fy, r){
     ellipse(x, y, r);
     pop();
   }
+  
 }
 
 function windowResized(){
