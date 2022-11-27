@@ -1,21 +1,5 @@
 // 最終課題を制作しよう
 
-// （めも）
-// クリックしたらポーンって花が出るようにしたい
-// 花の輪郭をarc？で付けたい
-
-
-// （作品の要件）
-// 繰り返し・条件分岐を意味ある形で使っていること
-// →→flower関数で繰り返し
-// setup, draw 以外に自作の関数を最低１つ作り、意味ある形で使っていること
-// →→flower関数作った
-// 以下の３要素のうちの少なくとも１つがあること
-// 配列を使っている
-// アニメーションをする部分がある
-// マウスかキーボードで何かしらの操作ができる
-// →→ポーンって出るようにしたら多分全部使う
-
 let flowers = [];
 const g = 0.8; // 重力
 const vyMax = 30;
@@ -40,7 +24,7 @@ function draw(){
   f.vy += g; // 重力は「速度の変化量」
   f.vy = constrain(f.vy, -vyMax, vyMax); 
 
-    if(f.y > windowWidth / 2){
+    if(f.y > windowHeight / 3 ){
       f.vx += random(-1,1);
     }
 
@@ -63,7 +47,7 @@ function windowResized(){
 
 function flower(fx, fy, r){
   
-  // ellipse(fx, fy, r);
+
   for(var i = 0; i < 5; i++){
     let theta = TWO_PI * i * 2 / 5 - HALF_PI;
     let x = fx + cos(theta) * r / 2;
@@ -75,17 +59,5 @@ function flower(fx, fy, r){
     ellipse(x, y, r);
     pop();
   }
-  // for(var i = 0; i < 5; i++){
-  //   let theta = TWO_PI * i * 2 / 5 - HALF_PI;
-  //   let x = fx + cos(theta) * r / 2;
-  //   let y = fy + sin(theta) * r / 2;
-  //   vertex(x,y);
-  //   noFill();
-  //   ellipse(x, y, r);
-  // }
+  
 }
-
-
-// pushとpopがあることで、
-// ngmarkだけにnoFillとstrokeWeightが反映されるようになる。
-// pushとpopを除くと、starに対しても反映される。
